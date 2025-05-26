@@ -1,3 +1,5 @@
+# folder_analyzer.py
+
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 import os

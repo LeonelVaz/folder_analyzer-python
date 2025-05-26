@@ -35,7 +35,20 @@ cd folder-analyzer
 
 ## 💻 Uso
 
-### Ejecutar la aplicación
+### Método 1: Ejecutar con archivo .bat (Recomendado para Windows)
+
+Para usuarios de Windows, se incluye un archivo `iniciar.bat` que automatiza la verificación e instalación de dependencias:
+
+1. **Descarga ambos archivos**: `folder_analyzer.py` e `iniciar.bat` en la misma carpeta
+2. **Ejecuta el .bat**: Doble clic en `iniciar.bat`
+3. El script automáticamente:
+   - ✅ Verifica que Python esté instalado
+   - ✅ Detecta si pyperclip está disponible
+   - ✅ Ofrece instalar pyperclip si no está presente
+   - ✅ Inicia la aplicación
+
+### Método 2: Ejecutar manualmente
+
 ```bash
 python folder_analyzer.py
 ```
@@ -145,6 +158,29 @@ El analizador reconoce y procesa los siguientes tipos de archivo:
 - **Codificación UTF-8**: Soporte completo para caracteres especiales
 - **Memoria eficiente**: Procesa archivos uno por uno sin cargar todo en memoria
 - **Interfaz escalable**: Ventana redimensionable con scroll automático
+- **Instalador automático**: El archivo .bat maneja dependencias automáticamente
+
+## 🔧 Solución de problemas
+
+### Error "pyperclip no encontrado"
+Si el archivo .bat reporta que pyperclip no está instalado cuando sí lo está:
+1. Prueba reinstalar: `pip install --upgrade pyperclip`
+2. Si usas múltiples versiones de Python, prueba: `pip3 install pyperclip`
+3. Ejecuta el .bat como administrador
+
+### Error de codificación de caracteres
+El archivo .bat incluye configuración UTF-8 para manejar caracteres especiales en español correctamente.
+
+### Python no encontrado
+Asegúrate de que Python esté en el PATH del sistema:
+1. Reinstala Python desde python.org
+2. Durante la instalación, marca "Add Python to PATH"
+
+## 📦 Archivos incluidos
+
+- `folder_analyzer.py` - Aplicación principal
+- `iniciar.bat` - Script de inicio automático para Windows
+- `README.md` - Esta documentación
 
 ## 📸 Casos de uso
 
@@ -152,4 +188,4 @@ El analizador reconoce y procesa los siguientes tipos de archivo:
 - **Revisión de código**: Obtén una vista unificada de todos los archivos
 - **Backup de código**: Crea copias de seguridad legibles en texto plano
 - **Análisis de estructura**: Entiende la organización de proyectos desconocidos
-- **Preparación para IA**: Formato perfecto para compartir código con ChatGPT o Claude
+- **Preparación para IA**: Formato perfecto para compartir código con Claude, Gemini, ChatGPT, etc.
