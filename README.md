@@ -58,18 +58,18 @@ cd folder_analyzer-python
 O descarga los archivos necesarios directamente del repositorio:
 
 - `folder_analyzer.py` (el script principal de la aplicación)
-- `run_analyzer.ps1` (el script de PowerShell que gestiona la ejecución)
-- `iniciar.bat` (el lanzador para Windows que ejecuta el script de PowerShell)
+- `folder_analyzer_powershell.ps1` (el script de PowerShell que gestiona la ejecución)
+- `folder_analyzer.bat` (el lanzador para Windows que ejecuta el script de PowerShell)
 
 ## 💻 Uso
 
-### Método 1: Ejecutar con archivo `iniciar.bat` (Recomendado para Windows)
+### Método 1: Ejecutar con archivo `folder_analyzer.bat` (Recomendado para Windows)
 
-Este método utiliza un script de PowerShell (`run_analyzer.ps1`) gestionado por un archivo `.bat` para una experiencia de usuario más fluida, incluyendo la verificación de Python 3.10 y dependencias.
+Este método utiliza un script de PowerShell (`folder_analyzer_powershell.ps1`) gestionado por un archivo `.bat` para una experiencia de usuario más fluida, incluyendo la verificación de Python 3.10 y dependencias.
 
-1.  **Descarga los archivos**: Asegúrate de tener `folder_analyzer.py`, `run_analyzer.ps1`, e `iniciar.bat` en la misma carpeta.
-2.  **Ejecuta el `.bat`**: Doble clic en `iniciar.bat`.
-3.  El script `iniciar.bat` lanzará `run_analyzer.ps1`, el cual:
+1.  **Descarga los archivos**: Asegúrate de tener `folder_analyzer.py`, `folder_analyzer_powershell.ps1`, e `folder_analyzer.bat` en la misma carpeta.
+2.  **Ejecuta el `.bat`**: Doble clic en `folder_analyzer.bat`.
+3.  El script `folder_analyzer.bat` lanzará `folder_analyzer_powershell.ps1`, el cual:
     - ✅ Verificará que Python 3.10 (a través de `py -3.10`) esté disponible.
     - ✅ Detectará si `pyperclip` está instalado y funcional para Python 3.10.
     - ✅ Ofrecerá instalar/reinstalar `pyperclip` si no está presente o no funciona.
@@ -81,8 +81,8 @@ Si prefieres, puedes ejecutar el script de PowerShell directamente:
 
 1.  Abre una ventana de PowerShell.
 2.  Navega hasta el directorio donde se encuentran los archivos: `cd "ruta\a\tu\carpeta"`.
-3.  Ejecuta el script: `.\run_analyzer.ps1`.
-    - _Nota_: Si no usas el `iniciar.bat` (que utiliza `-ExecutionPolicy Bypass`), es posible que necesites ajustar tu política de ejecución de PowerShell. Si encuentras un error relacionado con la política de ejecución, abre PowerShell como Administrador y ejecuta `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` o `Set-ExecutionPolicy Unrestricted -Scope CurrentUser` (menos seguro).
+3.  Ejecuta el script: `.\folder_analyzer_powershell.ps1`.
+    - _Nota_: Si no usas el `folder_analyzer.bat` (que utiliza `-ExecutionPolicy Bypass`), es posible que necesites ajustar tu política de ejecución de PowerShell. Si encuentras un error relacionado con la política de ejecución, abre PowerShell como Administrador y ejecuta `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` o `Set-ExecutionPolicy Unrestricted -Scope CurrentUser` (menos seguro).
 
 ### Método 3: Ejecutar manualmente con Python (Multiplataforma)
 
@@ -191,18 +191,18 @@ El analizador reconoce y procesa una amplia gama de tipos de archivo, incluyendo
 - **Configuración Persistente**: Las preferencias del usuario se guardan en un archivo JSON en el directorio home (`~/.folder_analyzer_config_v3.json`).
 - **Interfaz Moderna**: Uso de `ttk` para widgets temáticos y una organización mejorada.
 - **Notificaciones No Intrusivas**: Feedback al usuario sin interrumpir el flujo de trabajo.
-- **Lanzador de PowerShell para Windows**: El archivo `run_analyzer.ps1` (ejecutado por `iniciar.bat`) gestiona la comprobación de Python 3.10 y `pyperclip`, mejorando la experiencia de inicio.
+- **Lanzador de PowerShell para Windows**: El archivo `folder_analyzer_powershell.ps1` (ejecutado por `folder_analyzer.bat`) gestiona la comprobación de Python 3.10 y `pyperclip`, mejorando la experiencia de inicio.
 - **Uso del lanzador de Python (`py.exe`)**: Para asegurar la ejecución con Python 3.10 en Windows.
 
 ## 🔧 Solución de problemas
 
 ### Error "pyperclip no encontrado" o similar
 
-- Si estás utilizando el método de inicio recomendado (`iniciar.bat`), el script intentará ayudarte.
+- Si estás utilizando el método de inicio recomendado (`folder_analyzer.bat`), el script intentará ayudarte.
 - Si lo ejecutas manualmente, asegúrate de que `pyperclip` esté instalado en el entorno Python 3.10 que estás usando: `py -3.10 -m pip install --upgrade pyperclip`.
 - En Linux, `pyperclip` puede requerir `xclip` o `xsel`: `sudo apt-get install xclip` o `sudo apt-get install xsel`.
 
-### Python 3.10 no encontrado (al usar `iniciar.bat` o `run_analyzer.ps1`)
+### Python 3.10 no encontrado (al usar `folder_analyzer.bat` o `folder_analyzer_powershell.ps1`)
 
 - El script busca `py -3.10`. Asegúrate de que:
   1.  Python 3.10 esté instalado desde [python.org](https://www.python.org/downloads/).
@@ -210,7 +210,7 @@ El analizador reconoce y procesa una amplia gama de tipos de archivo, incluyendo
 
 ### Problemas con la Política de Ejecución de PowerShell (al ejecutar `.ps1` directamente)
 
-- Si intentas ejecutar `run_analyzer.ps1` directamente (sin el `iniciar.bat`) y obtienes un error sobre la política de ejecución, abre PowerShell como Administrador y ejecuta `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`. Esto solo necesita hacerse una vez. El `iniciar.bat` evita este problema usando `-ExecutionPolicy Bypass` para su sesión.
+- Si intentas ejecutar `folder_analyzer_powershell.ps1` directamente (sin el `folder_analyzer.bat`) y obtienes un error sobre la política de ejecución, abre PowerShell como Administrador y ejecuta `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`. Esto solo necesita hacerse una vez. El `folder_analyzer.bat` evita este problema usando `-ExecutionPolicy Bypass` para su sesión.
 
 ### Problemas de codificación de caracteres
 
@@ -219,8 +219,8 @@ El analizador reconoce y procesa una amplia gama de tipos de archivo, incluyendo
 ## 📦 Archivos incluidos
 
 - `folder_analyzer.py` - La aplicación principal en Python.
-- `run_analyzer.ps1` - Script de PowerShell para gestionar el entorno y la ejecución en Windows.
-- `iniciar.bat` - Script de inicio simplificado para Windows que ejecuta `run_analyzer.ps1`.
+- `folder_analyzer_powershell.ps1` - Script de PowerShell para gestionar el entorno y la ejecución en Windows.
+- `folder_analyzer.bat` - Script de inicio simplificado para Windows que ejecuta `folder_analyzer_powershell.ps1`.
 - `README.md` - Esta documentación.
 
 ## 📸 Casos de uso
