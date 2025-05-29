@@ -46,8 +46,6 @@ Si necesitas instalar `pyperclip` manualmente para Python 3.10:
 py -3.10 -m pip install pyperclip
 ```
 
-````
-
 El script de inicio para Windows intentará guiarte en este proceso si es necesario.
 
 ### Descarga
@@ -123,8 +121,8 @@ Una vez iniciada la aplicación:
 El análisis genera un documento estructurado similar al siguiente:
 
 ````
-
-# ANÁLISIS DE CARPETA
+ANÁLISIS DE CARPETA
+================================================================================
 
 Carpeta analizada: C:\Users\Usuario\mi-proyecto
 Fecha de análisis: 2024-12-07 15:30:45
@@ -134,19 +132,19 @@ Mostrar archivos vacíos: No
 Agregar números de línea: Sí
 Mostrar directorio primero: Sí
 
-## ELEMENTOS IGNORADOS (si los hay)
-
+ELEMENTOS IGNORADOS (si los hay)
+----------------------------------------
 Archivos:
-• .env
-• temp.log
+  • .env
+  • temp.log
 Carpetas:
-• node_modules/
-• .git/
+  • node_modules/
+  • .git/
 
 ================================================================================
 
-# DIRECTORIO DE ARCHIVOS (si la opción está activa)
-
+DIRECTORIO DE ARCHIVOS (si la opción está activa)
+================================================================================
 • mi-proyecto\index.js
 • mi-proyecto\components\Header.jsx
 ...
@@ -157,33 +155,32 @@ CONTENIDO DE ARCHIVOS
 
 Archivo: index.js
 Ruta: mi-proyecto\index.js
-
----
-
+----------------------------------------
 Contenido (javascript):
-
 ```javascript
 1   | // Código del archivo aquí
 2   | const app = require('./app');
 ...
-```
-
-```
+````
 
 ## 🔧 Extensiones soportadas
 
 El analizador reconoce y procesa una amplia gama de tipos de archivo, incluyendo (pero no limitado a):
 
 **Lenguajes de programación:**
+
 - Python (`.py`), JavaScript (`.js`, `.jsx`), TypeScript (`.ts`, `.tsx`), Java (`.java`), C/C++ (`.c`, `.cpp`, `.h`), C# (`.cs`), Ruby (`.rb`), Go (`.go`), Rust (`.rs`), Swift (`.swift`), Kotlin (`.kt`), PHP (`.php`)
 
 **Web y estilos:**
+
 - HTML (`.html`, `.htm`), CSS (`.css`, `.scss`, `.sass`), Vue (`.vue`), Svelte (`.svelte`)
 
 **Datos y configuración:**
+
 - JSON (`.json`), XML (`.xml`), YAML (`.yaml`, `.yml`), CSV (`.csv`), Markdown (`.md`), Texto (`.txt`)
 
 **Scripts y otros:**
+
 - SQL (`.sql`), Shell (`.sh`), Batch (`.bat`), PowerShell (`.ps1`), Dockerfile (`.dockerfile`)
 
 ## 🛠️ Características técnicas
@@ -200,19 +197,23 @@ El analizador reconoce y procesa una amplia gama de tipos de archivo, incluyendo
 ## 🔧 Solución de problemas
 
 ### Error "pyperclip no encontrado" o similar
+
 - Si estás utilizando el método de inicio recomendado (`iniciar.bat`), el script intentará ayudarte.
 - Si lo ejecutas manualmente, asegúrate de que `pyperclip` esté instalado en el entorno Python 3.10 que estás usando: `py -3.10 -m pip install --upgrade pyperclip`.
 - En Linux, `pyperclip` puede requerir `xclip` o `xsel`: `sudo apt-get install xclip` o `sudo apt-get install xsel`.
 
 ### Python 3.10 no encontrado (al usar `iniciar.bat` o `run_analyzer.ps1`)
+
 - El script busca `py -3.10`. Asegúrate de que:
-    1.  Python 3.10 esté instalado desde [python.org](https://www.python.org/downloads/).
-    2.  El lanzador de Python para Windows (`py.exe`) esté instalado y en tu PATH. Esto generalmente se incluye por defecto con la instalación de Python en Windows. Marca la opción "Install launcher for all users (recommended)" y "Add Python to PATH" durante la instalación.
+  1.  Python 3.10 esté instalado desde [python.org](https://www.python.org/downloads/).
+  2.  El lanzador de Python para Windows (`py.exe`) esté instalado y en tu PATH. Esto generalmente se incluye por defecto con la instalación de Python en Windows. Marca la opción "Install launcher for all users (recommended)" y "Add Python to PATH" durante la instalación.
 
 ### Problemas con la Política de Ejecución de PowerShell (al ejecutar `.ps1` directamente)
+
 - Si intentas ejecutar `run_analyzer.ps1` directamente (sin el `iniciar.bat`) y obtienes un error sobre la política de ejecución, abre PowerShell como Administrador y ejecuta `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`. Esto solo necesita hacerse una vez. El `iniciar.bat` evita este problema usando `-ExecutionPolicy Bypass` para su sesión.
 
 ### Problemas de codificación de caracteres
+
 - La aplicación usa UTF-8 por defecto. Si encuentras problemas con archivos específicos, verifica su codificación original.
 
 ## 📦 Archivos incluidos
@@ -228,5 +229,4 @@ El analizador reconoce y procesa una amplia gama de tipos de archivo, incluyendo
 - **Revisión de código**: Obtén una vista unificada de todos los archivos para facilitar la revisión.
 - **Backup de código**: Crea copias de seguridad legibles en formato de texto plano.
 - **Análisis de estructura**: Entiende rápidamente la organización de proyectos desconocidos.
-- **Preparación para IA**: Formato ideal para compartir bases de código con modelos de lenguaje grandes (Claude, Gemini, ChatGPT, etc.), especialmente con la capacidad de ignorar directorios como `node_modules/
-```
+- **Preparación para IA**: Formato ideal para compartir bases de código con modelos de lenguaje grandes (Claude, Gemini, ChatGPT, etc.), especialmente con la capacidad de ignorar directorios como `node_modules/`.
